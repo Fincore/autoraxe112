@@ -10,7 +10,7 @@ RUN yum install -y libaio bc
 
 # Copy the RPM file, modified init.ora, initXETemp.ora and the installation response file
 # inside the image
-ADD disk1/oracle-xe-11.2.0-1.0.x86_64.rpm /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
+ADD /root/scripts/oel-xe/disk1/oracle-xe-11.2.0-1.0.x86_64.rpm /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
 
 ADD init.ora /tmp/init.ora
 ADD initXETemp.ora /tmp/initXETemp.ora
