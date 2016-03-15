@@ -5,12 +5,6 @@
 FROM centos:centos6
 MAINTAINER Fincore Ltd - Marcelle von Wendland <mvw@fincore.com>
 
-# Use the OEL6 base image
-FROM oel6-base:6.5
-
-# Maintainer of the image
-MAINTAINER Rob den Braber
-
 # Install the packages libaio and bc
 RUN yum install -y libaio bc
 
