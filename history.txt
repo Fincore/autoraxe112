@@ -1,0 +1,1000 @@
+   88  emacs client.sh
+   89  ls
+   90  sudo emacs client.sh
+   91  ls
+   92  mkdir /usr/lib/oracle/12.1/client64/network/admin -p
+   93  sudo mkdir /usr/lib/oracle/12.1/client64/network/admin -p
+   94  cd /usr/lib/oracle/12.1/client64/network/admin 
+   95  ls
+   96  sudo emacs tnsnames.ora
+   97  ls
+   98  exit
+   99  logout
+  100  ls
+  101  sqlplus
+  102  sqlnet
+  103  cd /usr/lib/oracle/12.1/client64/network/admin
+  104  ls
+  105  emacs tnsnames.ora
+  106  sudo emacs tnsnames.ora
+  107  docker run -d -p 49160:22 -p 49161:1521 wnameless/oracle-xe-11g
+  108  sudo docker run -d -p 49160:22 -p 49161:1521 wnameless/oracle-xe-11g
+  109  sudo sqlplus
+  110  sqlplus
+  111  ORACLE_SID=xe
+  112  export ORACLE_SID
+  113  sqlplus system/oracle@localhost
+  114  sqlplus system/oracle@xe
+  115  sqlplus 
+  116  sqlplus system/oracle@xe
+  117  sqlplus system/oracle@localhost:49161
+  118  ls
+  119  sudo docker images
+  120  sudo docker docker run -p 8089:8080 -p 1521:1521 -d automyse:ora11ex
+  121  sudo docker run -p 8089:8080 -p 1521:1521 -d automyse:ora11ex
+  122  wget localhost:8089
+  123  sqlplus system/oracle@localhost:1521
+  124  sudo docker ps
+  125  sudo docker ps -a
+  126  sudo docker rm ff78a493e92
+  127  sudo docker rm fff78a493e92
+  128  sudo docker ps -a
+  129  sudo docker rm 1f43960de947
+  130  sudo docker ps -a
+  131  sudo docker ps 
+  132  sudo docker ps -a
+  133  sudo docker rm 6dfc32dd36ed
+  134  sudo docker ps -a
+  135  sudo docker rm e565968616c2
+  136  sudo docker ps -a
+  137  sudo docker ps 
+  138  sudo docker images
+  139  sudo docker rmi automyse:ora11ex
+  140  ls
+  141  sudo docker images
+  142  ls
+  143  pwd
+  144  cd /home/
+  145  ls
+  146  cd fincore
+  147  ls
+  148  cd ORADSK
+  149  ls
+  150  emacs Dockerfile
+  151  ls
+  152  emacs Dockerfile
+  153  ls
+  154  rm Dockerfile~
+  155  ls
+  156  moreswap
+  157  bash moreswap.sh
+  158  sudo bash moreswap.sh
+  159  emacs Dockerfile
+  160  sudo docker build -t automyse:ora11ex .
+  161  sudo docker images
+  162  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22 -d automyse:ora11ex
+  163  sqlplus system/oracle@localhost:1521
+  164  cd /usr/lib/oracle/12.1/client64/network/admin
+  165  ls
+  166  sudo emacs tnsnames.ora
+  167  sqlplus system/oracle@localhost:1521
+  168  wget localhost:8089
+  169  sudo docker ps
+  170  sudo docker ps -a
+  171  sudo docker rm e0b1968cefc3
+  172  sudo docker images
+  173  sudo docker rmi automyse:ora11ex
+  174  sudo docker images
+  175  pwd
+  176  cd /home/
+  177  ls
+  178  cd fincore
+  179  ls
+  180  cd ORAdsk
+  181  CD ORADSK
+  182  cd ORADSK
+  183  ls
+  184  mv Dockerfile Dockerfile.001
+  185  emacs Dockerfile
+  186  ls
+  187  cd disk1
+  188  ls
+  189  cd response
+  190  ls
+  191  emacs xe.rsp
+  192  cd ..
+  193  ls
+  194  emacs init.ora
+  195  emacs Dockerfile
+  196  emacs start.sh
+  197  sudo docker build -t automyse:ora11ex .
+  198  emacs Docerfile
+  199  pwd
+  200  ls
+  201  emacs Dockerfile
+  202  sudo docker build -t automyse:ora11ex .
+  203  emacs Dockerfile
+  204  ls
+  205  cd dsik1
+  206  cd disk1
+  207  ls
+  208  cp oracle-xe-11.2.0-1.0.x86_64.rpm oracle-xe-11.2.0-1.0.x86_64.rpm.bak
+  209  cd ..
+  210  ls
+  211  sudo docker images
+  212  sudo docker rmi 948d38846f64
+  213  sudo docker build -t automyse:ora11ex .
+  214  emacs Dockerfile
+  215  sudo docker build -t automyse:ora11ex .
+  216  ls
+  217  sudo docker ps -a
+  218  sudo docker rm *
+  219  sudo docker rm abfcc500011
+  220  sudo docker rm abfccb500011
+  221  sudo docker rm 1d54d3e11f5b
+  222  sudo docker rm 9e1ce0e921a
+  223  sudo docker rm 9e1ce0e9212a
+  224  sudo docker ps -a
+  225  sudo docker rm 579f5e9e0459
+  226  sudo docker ps -a
+  227  emacs Dockerfile
+  228  sudo docker build -t automyse:ora11ex .
+  229  sudo docker ps -a
+  230  sudo docker rm ee59c72f018c
+  231  sudo docker ps -a
+  232  sudo docker images
+  233  sudo docker rmi 1390b1389890
+  234  sudo docker images
+  235  sudo docker rmi 61fb6a867e06
+  236  sudo docker rmi b8549b9f54c9
+  237  sudo docker images
+  238  sudo docker build -t automyse:ora11ex ./
+  239  emacs Dockerfile
+  240  sudo docker build -t automyse:ora11ex ./
+  241  emacs Dockerfile
+  242  sudo docker build -t automyse:ora11ex ./
+  243  emacs Dockerfile
+  244  sudo docker build -t automyse:ora11ex ./
+  245  emacs Dockerfile
+  246  sudo docker build -t automyse:ora11ex ./
+  247  sudo docker images
+  248  sudo docker rmi 6b8af813b3a5
+  249  sudo docker ps -a
+  250  sudo docker rm 733100f11cfd
+  251  sudo docker rm f467dc9276da
+  252  sudo docker ps -a
+  253  sudo docker rm tiny_payne
+  254  sudo docker ps -a
+  255  sudo docker rm tiny_modest_brahmagupta
+  256  sudo docker rm modest_brahmagupta
+  257  sudo docker images
+  258  sudo docker rmi 6b8af813b3a5
+  259  sudo docker rmi 641c87cf9351
+  260  sudo docker images
+  261  sudo docker rmi fee346e57d76
+  262  sudo docker images
+  263  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22 -d automyse:ora11ex
+  264  sudo docker ps -a
+  265  sudo docker rm hungry_goodall
+  266  ls
+  267  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22 automyse:ora11ex
+  268  sudo docker run bash ./start.sh -p 8089:8080 -p 1521:1521 -p 23:22 automyse:ora11ex
+  269  sudo docker run ./start.sh -p 8089:8080 -p 1521:1521 -p 23:22 automyse:ora11ex
+  270  sudo docker run start.sh -p 8089:8080 -p 1521:1521 -p 23:22 automyse:ora11ex
+  271  sudo docker run  -p 8089:8080 -p 1521:1521 -p 23:22 automyse:ora11ex
+  272  sudo docker ps -a
+  273  sudo docker rm modest_kalam
+  274  sudo docker rm trusting_khorama
+  275  sudo docker rm trusting_khorana
+  276  sudo docker images
+  277  sudo docker rmi automyse:ora11ex
+  278  emacs Dockerfile
+  279  emacs start.sh
+  280  emacs Dockerfile
+  281  sudo docker build -t automyse:ora11ex ./
+  282  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22 automyse:ora11ex
+  283  sudo docker ps -a
+  284  sqlplus system/oracle@localhost:1521
+  285  pwd
+  286  ls
+  287  cd ORADSK
+  288  ls
+  289  cd disk1
+  290  wget http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-x64.rpm
+  291  ls
+  292  rm jdk*
+  293  ls
+  294  wget http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-x64.rpm?AuthParam=1458335461_d765082b5db8dba7e263cb4411944518
+  295  ls
+  296  mv jdk-8u73-linux-x64.rpm?AuthParam=1458335461_d765082b5db8dba7e263cb4411944518 jdk-8u73-linux-x64.rpm
+  297  ls
+  298  cd ..
+  299  ls
+  300  emacs Dockefile
+  301  emacs Dockerfile
+  302  ls
+  303  rm *~
+  304  ls
+  305  emacs Dockerfile
+  306  cp Dockerfile Dockerfile.bak
+  307  ls
+  308  rm #Dockerfile#
+  309  rm '#Dockerfile#'
+  310  ls
+  311  emacs Dockerfile
+  312  ls
+  313  cd ORADSK
+  314  ls
+  315  emacs Dockerfile
+  316  cd disk1
+  317  ls
+  318  cd ..
+  319  emacs Dockerfile
+  320  ls
+  321  cd disk1
+  322  wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.rpm
+  323  wget https://dl.bintray.com/sbt/native-packages/sbt/0.13.11/sbt-0.13.11.tgz
+  324  ls
+  325  cd ..
+  326  ls
+  327  emacs Dockerfile
+  328  sudo docker build -t automyse:ora11ex1 ./
+  329  emacs Dockerfile
+  330  sudo docker build -t automyse:ora11ex1 ./
+  331  emacs Dockerfile
+  332  sudo docker build -t automyse:ora11ex1 ./
+  333  emacs Dockerfile
+  334  sudo docker build -t automyse:ora11ex1 ./
+  335  emacs Dockerfile
+  336  sudo docker build -t automyse:ora11ex1 ./
+  337  emacs Dockerfile
+  338  sudo docker ps -a
+  339  sudo docker rm jovial_kare
+  340  sudo docker images
+  341  sudo docker rmi 1235c4b35fbe
+  342  sudo docker images
+  343  sudo docker rmi automyse:ora11ex1
+  344  sudo docker images
+  345  sudo docker rmi 3a6ddc492f12
+  346  sudo docker images
+  347  sudo docker rmi 1172f72348e0
+  348  sudo docker stop --help
+  349  sqlplus system/oracle@localhost:1521
+  350  sudo docker ps
+  351  sudo docker stop all
+  352  sudo docker stop 99d291a07ce6
+  353  sudo docker ps
+  354  sudo docker ps -a
+  355  sudo docker rm 99d291a07ce6
+  356  sqlplus system/oracle@localhost:1521
+  357  sudo docker images
+  358  rmi automyse:ora11ex
+  359  sudo docker rmi automyse:ora11ex
+  360  sudo docker build -t automyse:ora11ex ./
+  361  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22 automyse:ora11ex
+  362  sqlplus system/oracle@localhost:1521
+  363  emacs Dockerfile
+  364  ls
+  365  cd ORADSK
+  366  emacs Dockerfile
+  367  sudo docker build -t automyse:ora11ex ./
+  368  git clone https://automyse:Aw3s0me@github.com/Fincore/FDM3-dev.git
+  369  git clone https://automyse:Aw3s0m3@github.com/Fincore/FDM3-dev.git
+  370  git clone https://automyse:aw3s0m3@github.com/Fincore/FDM3-dev.git
+  371  git clone https://automyse:aw3s0m32@github.com/Fincore/FDM3-dev.git
+  372  git clone https://automyse:Aw3s0m32@github.com/Fincore/FDM3-dev.git
+  373  git clone 
+  374  git clone https://automyse:Aw3s0m32@github.com/Fincore/FDM3-dev.git
+  375  ls
+  376  rm *~
+  377  ls
+  378  pwd
+  379  cd var
+  380  cd /var
+  381  ls
+  382  cd /home/fincore/ORADSK
+  383  ls
+  384  pwd
+  385  git clone https://automyse:Aw3s0m32@github.com/Fincore/FDM3-dev.git /var/automyse
+  386  sudo git clone https://automyse:Aw3s0m32@github.com/Fincore/FDM3-dev.git /var/automyse
+  387  cd /var
+  388  ls
+  389  cd automyse
+  390  ls
+  391  cd /home/fincore/ORADSK
+  392  emacs Dockerfile
+  393  sudo docker build -t automyse:ora11ex ./
+  394  mysql
+  395  mysql root@localhost
+  396  mysql --user=root --password=C0r0na02!
+  397  mysql --user=root --password=C0r0na02! DOCCNHS
+  398  mysql --user=root --password=C0r0na02! 
+  399  ls
+  400  test.sql
+  401  mysql --user=root --password=C0r0na02! --host=217.174.253.94
+  402  mysql --user=root --password=C0r0na02! --host=localhost
+  403  cd /etc/mysql/
+  404  ls
+  405  cd /etc/
+  406  ls
+  407  sudo emacs my.cnf
+  408  iptables -list
+  409  iptables --list
+  410  sudo iptables --list
+  411  /etc/rc.d/rc.mysqld restart
+  412  systemctl stop mariadb
+  413  sudo systemctl stop mariadb
+  414  sudo systemctl is-active mariadb.service
+  415  sudo /etc/init.d/mysql stop
+  416  sudo /etc/init.d/mysql start
+  417  mysql --user=root --password=C0r0na02! --host=217.174.253.94
+  418  mysql --user=root --password=C0r0na02! 
+  419  mysql --user=root --password=C0r0na02! --host=217.174.253.94
+  420  mysql --user=root --password=C0r0na02! --host=217.174.253.94 -p
+  421  mysql --user=root --password=C0r0na02! -h 217.174.253.94 -p
+  422  mysql --user=root --password=C0r0na02! --host='217.174.253.94' 
+  423  mysql --user=root --password=C0r0na02! --host='217.174.253.94' --password=C0r0na02!
+  424  mysql --user=root  --host='217.174.253.94' --password=C0r0na02!
+  425  ls
+  426  sudo emacs my.cnf
+  427  mysql --user=root   --password=C0r0na02!
+  428  mysql --user=root  --host='217.174.253.94' --password=C0r0na02!
+  429  cd /home/fincore/ORADSK
+  430  ls
+  431  emacs Dockerfile
+  432  emacs test.sql
+  433  emacs Dockerfile
+  434  mysql --user=root  --host='217.174.253.94' --password=C0r0na02!
+  435  mysql --user=AUTOMYSE  --host='217.174.253.94' --password=Aw3s0m32
+  436  emacs Dockerfile
+  437  sudo docker build -t automyse:ora11ex ./
+  438  emacs Dockerfile
+  439  sudo docker build -t automyse:ora11ex ./
+  440  emacs Dockerfile
+  441  sudo docker build -t automyse:ora11ex ./
+  442  emacs Dockerfile
+  443  sudo docker build -t automyse:ora11ex ./
+  444  firewall-cmd --permanent --zone=trusted --add-interface=docker0
+  445  emacs Dockerfile
+  446  sudo docker build -t automyse:ora11ex ./
+  447  docker ps -a
+  448  sudo docker ps -a
+  449  sudo docker rm grave_brahmagupta
+  450  sudo docker rm kickass_pike
+  451  sudo docker rm backstabbing_brattain
+  452  sudo docker rm elated_pike
+  453  docker ps -a
+  454  sudo docker ps -a
+  455  sudo docker rm admiring_stonebraker
+  456  sudo docker rm dreamy_chandrasekar
+  457  sudo docker rm dreamy_cha
+  458  sudo docker stop dreamy_chandrasekar
+  459  sudo docker stop dreamy_chandrasekhar
+  460  sudo docker rm dreamy_chandrasekhar
+  461  sudo docker stop elegant_perlman
+  462  sudo docker rm elegant_perlman
+  463  docker ps -a
+  464  sudo docker ps -a
+  465  sudo docker images
+  466  sudo docker rmi c546e478061c
+  467  sudo docker rmi d00e109a9d2e
+  468  iptables -list
+  469  sudo iptables -list
+  470  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22 automyse:ora11ex
+  471  sudo iptables --list
+  472  emacs Dockerfile
+  473  sudo docker build -t automyse:ora11ex ./
+  474  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22 automyse:ora11ex
+  475  docker ps -a
+  476  sudo docker ps -a
+  477  sudo docker rm fervent_goldwasser
+  478  sudo docker rm jovial_golden
+  479  sudo docker rm jovial_colden
+  480  --add-host=docker:
+  481  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22  --add-host=docker:217.174.253.94  automyse:ora11ex
+  482  ip link add docker0 type bridge
+  483  sudo ip link add docker0 type bridge
+  484  sudo ip link set docker0 up
+  485  ip addr add 217.174.253.94/16 dev docker0
+  486  sudo ip addr add 217.174.253.94/16 dev docker0
+  487  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22  -H 217.174.253.94  automyse:ora11ex
+  488  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22  -h 217.174.253.94  automyse:ora11ex
+  489  sudo iptables -A INPUT -i docker0 -p tcp -m tcp --dport 25 -j ACCEPT
+  490  sudo iptables -A INPUT -i docker0 -p tcp -m tcp --dport 80 -j ACCEPT
+  491  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22  -h 217.174.253.94  automyse:ora11ex
+  492  sudo ip addr add 172.17.0.1/16 dev docker0
+  493  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22  -h 217.174.253.94  automyse:ora11ex
+  494  emacs Dockerfile
+  495  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  496  sudo docker build -t automyse:ora11ex ./
+  497  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  498  emacs Dockerfile
+  499  sudo docker build -t automyse:ora11ex ./
+  500  sudo docker run -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  501  cd /etc/
+  502  ls
+  503  sudo emacs my.cnf
+  504  cd /home/fincore/ORADSK
+  505  ls
+  506  sudo docker run -h 217.174.253.94  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  507  sudo docker run -h 127.0.0.1  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  508  sudo docker run --host=127.0.0.1  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  509  sudo docker run -h127.0.0.1  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  510  sudo docker run -h 127.0.0.1  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  511  emacs Dockerfile
+  512  sudo docker build -t automyse:ora11ex ./
+  513  sudo docker run -h 127.0.0.1  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  514  emacs Dockerfile
+  515  sudo docker build -t automyse:ora11ex ./
+  516  sudo docker run -h 127.0.0.1  -p 8089:8080 -p 1521:1521 -p 23:22 -p 217.174.253.94:3306:3306 automyse:ora11ex
+  517  sudo docker run --net="host" -h 127.0.0.1  -p 8089:8080 -p 1521:1521 -p 23:22 -p 217.174.253.94:3306:3306 automyse:ora11ex
+  518  sudo docker run --net="host" -h 127.0.0.1  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  519  sudo docker run --net="host"  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  520  emacs Dockerfile
+  521  sudo docker run --net="host"  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  522  sudo docker build -t automyse:ora11ex ./
+  523  sudo docker run --net="host"  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  524  sudo docker ps -a
+  525  sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm
+  526  sudo docker ps -a
+  527  sudo docker rm pensive_fermat
+  528  sudo docker ps -a
+  529  sudo docker run --net="host"  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  530  sudo docker ps -a
+  531  emacs Dockerfile
+  532  mysql --user=AUTOMYSE --password='Aw3s0m32' --host=217.174.253.94
+  533  mysql --user=AUTOMYSE --password='Aw3s0m32' --host=localhost
+  534  emacs Dockerfile
+  535  sudo docker build -t automyse:ora11ex ./
+  536  sudo docker run --net="host"  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  537  cd /etc/
+  538  ls
+  539  emacs my.cnf
+  540  sudo emacs my.cnf
+  541  cd /home/fincore/ORADSK
+  542  ls
+  543  emacs Dockerfile
+  544  sudo docker run --net="host"  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  545  cd /var/lib/mysql/
+  546  ls
+  547  cd /home/fincore/ORADSK
+  548  ls
+  549  emacs Dockerfile
+  550  sudo docker build -t automyse:ora11ex ./
+  551  sudo docker run --net="host"  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  552  emacs Dockerfile
+  553  sudo docker build -t automyse:ora11ex ./
+  554  sudo docker run --net="host"  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  555  sudo docker run   -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  556  emacs Dockerfile
+  557  sudo docker build -t automyse:ora11ex ./
+  558  mysql --user=AUTOMYSE --password='Aw3s0m32' --host=127.0.0.1
+  559  sudo docker run   --rm -it --net=host  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  560  cd /etc/
+  561  sudo emacs my.cnf
+  562  sudo docker run   --rm -it --net=host  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  563  mysql --user=AUTOMYSE --password='Aw3s0m32' --host=127.0.0.1
+  564  sudo emacs my.cnf
+  565  mysql --user=AUTOMYSE --password='Aw3s0m32' --host=217.174.253.94
+  566  mysql --user=AUTOMYSE --password='Aw3s0m32' --host=127.0.0.1
+  567  mysql --user=root --password='C0r0na02!' --host=127.0.0.1
+  568  mysql.server stop
+  569  sudo mysql.server stop
+  570  /etc/init.d/mysql stop
+  571  sudo /etc/init.d/mysql stop
+  572  sudo /etc/init.d/mysql start
+  573  mysql --user=root --password='C0r0na02!' --host=127.0.0.1
+  574  cd /etc/
+  575  ls
+  576  my.cnf
+  577  sudo emacs my.cnf
+  578  sudo /etc/init.d/mysql stop
+  579  sudo /etc/init.d/mysql start
+  580  mysql --user=root --password='C0r0na02!' --host=127.0.0.1
+  581  sudo docker run   --rm -it --net=host  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+  582  ls
+  583  cd /var/automyse/portal/queryhub/
+  584  ls
+  585  sudo iptables -P INPUT ACCEPT
+  586  iptables -A INPUT -i lo -j ACCEPT
+  587  sudo iptables -A INPUT -i lo -j ACCEPT
+  588  sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+  589  sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+  590  sudo iptables -L -v
+  591  service iptables start
+  592  sudo service iptables start
+  593  ls
+  594  cd ORADSK
+  595  ls
+  596  sudo docker ps -a
+  597  sudo docker attach lonely_golden
+  598  sudo docker attach lonely_colden
+  599  emacs Dockerfile
+  600  sudo docker build -t automyse:ora11ex ./
+  601  emacs Dockerfile
+  602  sudo docker build -t automyse:ora11ex ./
+  603  emacs Dockerfile
+  604  sudo docker build -t automyse:ora11ex ./
+  605  sudo emacs supervisord.conf
+  606  emacs Dockerfile
+  607  sudo docker build -t automyse:ora11ex ./
+  608  emacs Dockerfile
+  609  sudo docker build -t automyse:ora11ex ./
+  610  cd /var
+  611  ls
+  612  cd automyse
+  613  ls
+  614  cd /home/fincore/ORADSK/
+  615  cd /var/automyse/portal/queryhub/
+  616  ls
+  617  activator run
+  618  activator
+  619  sudo emacs activator
+  620  ls
+  621  chmod +x activator
+  622  sudo chmod +x activator
+  623  activator run
+  624  bash activator run
+  625  ls
+  626  edit 
+  627  em
+  628  emacs build.sbt
+  629  cd project
+  630  ls
+  631  emacs plugins.sbt
+  632  sudo emacs plugins.sbt
+  633  cd ..
+  634  bash activator run
+  635  cd project
+  636  sudo emacs plugins.sbt
+  637  cd ..
+  638  bash activator run
+  639  cd ..
+  640  ls
+  641  sudo emacs build.sbt
+  642  cd po
+  643  cd project
+  644  ls
+  645  sudo emacs plugins.sbt
+  646  cd ..
+  647  bash activator run
+  648  ls
+  649  sudo emacs plugins.sbt
+  650  sudo emacs build.sbt
+  651  bash activator run
+  652  sudo emacs build.sbt
+  653  bash activator run
+  654  sbt buiol
+  655  sbt clean
+  656  bash activator run
+  657  bash activator clean run
+  658  cd project
+  659  ls
+  660  sudo emacs build.sbt
+  661  sudo emacs plugins.sbt
+  662  cd ..
+  663  sudo emacs build.sbt
+  664  bash activator clean run
+  665  cd ..
+  666  cd project
+  667  ls
+  668  sudo emacs plugins.sbt
+  669  cd ..
+  670  bash activator clean run
+  671  sudo emacs build.sbt
+  672  bash activator clean run
+  673  cd project
+  674  sudo emacs plugins.sbt
+  675  cd ..
+  676  bash activator clean run
+  677  bash activator clean run
+  678  bash activator clean 
+  679  bash activator clean run
+  680  sudo emacs build.sbt
+  681  cd project 
+  682  sudo emacs plugins.sbt
+  683  cd ..
+  684  ls
+  685  bash activator clean run
+  686  cd project
+  687  ls
+  688  sudo emacs plugins.sbt
+  689  cd ..
+  690  bash activator clean run
+  691  cd project
+  692  sudo emacs plugins.sbt
+  693  cd ..
+  694  bash activator clean run
+  695  cd project
+  696  sudo emacs plugins.sbt
+  697  cd ..
+  698  bash activator clean run
+  699  sudo emacs build.sbt
+  700  bash activator clean run
+  701  cd bin
+  702  ls
+  703  cd ..
+  704  cd lib
+  705  ls
+  706  cd play-yeoman
+  707  ls
+  708  bash activator clean deployLocal
+  709  bash activator clean publishLocal
+  710  ls
+  711  sudo emacs build.sbt
+  712  ls
+  713  cd project
+  714  ls
+  715  sudo emacs plugins.sbt
+  716  ls
+  717  sudo emacs build.properties
+  718  cd ..
+  719  sudo emacs build.sbt
+  720  bash activator clean publishLocal
+  721  ls
+  722  sudo emacs build.sbt
+  723  bash activator clean publishLocal
+  724  ls
+  725  cd project
+  726  ls
+  727  sudo emacs plugins.sbt
+  728  cd ..
+  729  ls
+  730  cd ..
+  731  ls
+  732  cd ..
+  733  ls
+  734  cd portal
+  735  ls
+  736  cd queryhub
+  737  ls
+  738  cd lib
+  739  ls
+  740  cd ..
+  741  ls
+  742  cd app
+  743  ls
+  744  cd views
+  745  ls
+  746  cd ..
+  747  ls
+  748  cd controllers
+  749  ls
+  750  cd ..
+  751  ls
+  752  cd project
+  753  ls
+  754  sudo emacs plugins.sbt
+  755  ls
+  756  sudo emacs build.properties
+  757  cd ..
+  758  ls
+  759  cd conf
+  760  ls
+  761  cd ..
+  762  ls
+  763  sbt clean
+  764  sbt compile
+  765  sbt reload
+  766  sbt compile
+  767  cd ..
+  768  ls
+  769  cd ..
+  770  wget http://repo1.maven.org/maven2/com/tuplejump/play-yeoman_2.11/0.7.1/play-yeoman_2.11-0.7.1-sources.jar
+  771  sudo wget http://repo1.maven.org/maven2/com/tuplejump/play-yeoman_2.11/0.7.1/play-yeoman_2.11-0.7.1-sources.jar yeoman
+  772  sudo wget http://repo1.maven.org/maven2/com/tuplejump/play-yeoman_2.11/0.7.1/play-yeoman_2.11-0.7.1-sources.jar 
+  773  sudo wget http://repo1.maven.org/maven2/com/tuplejump/play-yeoman_2.11/0.7.1/play-yeoman_2.11-0.7.1-sources.jar
+  774  ls
+  775  rm *.1
+  776  sudo rm *.1
+  777  sudo rm *.2
+  778  ls
+  779  md yeoman
+  780  mv play-* yeoman\
+  781  mv play-* yeoman/
+  782  mv play-* yeoman
+  783  sudo mv play-* yeoman
+  784  cd yeoman
+  785  ls
+  786  rm yeoman
+  787  sudo mv yeoman yeoman.jar
+  788  ls
+  789  mkdir yeoman
+  790  sudo mkdir yeoman
+  791  mv yeoman.jar yeoman
+  792  sudo mv yeoman.jar yeoman
+  793  cd yeoman
+  794  jar xf yeoman.jar
+  795  sudo jar xf yeoman.jar
+  796  ls
+  797  cd com
+  798  ls
+  799  cd yuplejump
+  800  cd tuplejumpp
+  801  cd tuplejump
+  802  ls
+  803  cd playYeoman
+  804  ls
+  805  cat Yeoman.scala
+  806  wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+  807  sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+  808  yum install apache-maven
+  809  sudo yum install apache-maven
+  810  ls
+  811  cd ..
+  812  ls
+  813  cd ..
+  814  ls
+  815  rm -r yeoman
+  816  sudo rm -r yeoman
+  817  ls
+  818  git clone https://github.com/tuplejump/play-yeoman.git
+  819  sudo git clone https://github.com/tuplejump/play-yeoman.git
+  820  ls
+  821  cd play-yeoman
+  822  ls
+  823  cd play-yeoman
+  824  ls
+  825  mvn clean
+  826  ls
+  827  cd project
+  828  ls
+  829  cd ..
+  830  sbt clean compile
+  831  java
+  832  java -v
+  833  java -version
+  834  sbt clean publishLocal
+  835  cd ..
+  836  ls
+  837  cd sbt-yeoman
+  838  sbt clean publishLocal
+  839  scala -v
+  840  scala -version
+  841  ls
+  842  sudo emacs build.sbt
+  843  sbt clean publishLocal
+  844  scala -v
+  845  scala -version
+  846  sudo emacs build.sbt
+  847  sbt clean publishLocal
+  848  ls
+  849  cd project
+  850  ls
+  851  sudo emacs build.properties
+  852  sbt -version
+  853  sudo emacs build.properties
+  854  cd ..
+  855  sbt clean publishLocal
+  856  sudo sbt clean publishLocal
+  857  cd ..
+  858  ls
+  859  cd ..
+  860  ls
+  861  sudo rm -r play-yeoman
+  862  ls
+  863  cd automyse
+  864  ls
+  865  cd portal
+  866  ls
+  867  cd queryhub
+  868  ls
+  869  cd lib
+  870  ls
+  871  sudo wget http://repo1.maven.org/maven2/com/tuplejump/play-yeoman_2.11/0.7.1/play-yeoman_2.11-0.7.1.jar
+  872* 
+  873  sudo bash activator clean publishLocal
+  874  sudo emacs build.sbt
+  875  cd project
+  876  ls
+  877  sudo emacs plugins.sbt
+  878  cd ..
+  879  sudo bash activator clean publishLocal
+  880  sudo bash activator run
+  881  grunt
+  882  npm install
+  883  curl --silent --location https://rpm.nodesource.com/setup_4.x | bash -
+  884  pwd
+  885  sudo curl --silent --location https://rpm.nodesource.com/setup_4.x | bash -
+  886  sudo yum -y install nodejs
+  887  npm
+  888  yum -y install nodejs 
+  889  sudo yum -y install nodejs 
+  890  npm
+  891  sudo yum groupinstall 'Development Tools'
+  892  sudo yum install epel-release
+  893  sudo yum install nodejs
+  894  sudo yum clean all
+  895  sudo yum update
+  896  sudo yum install npm
+  897  sudo yum clean all
+  898  sudo yum update
+  899  grunt
+  900  npm install grunt
+  901  npm install
+  902  sudo npm install
+  903  sudo npm install grunt
+  904  grunt update
+  905  grunt 
+  906  npm install -g grunt-cli
+  907  sudo npm install -g grunt-cli
+  908  grunt
+  909  sudo bash activator run
+  910  grunt install 
+  911  ls
+  912  cd ui
+  913  grunt
+  914  grunt install load-grunt-tasks
+  915  grunt install load-grunt-tasks --force
+  916  sudo npm install
+  917  sudo grunt
+  918  sudo grunt --force
+  919  bower
+  920  sudo npm install -g bower
+  921  sudo bower install
+  922  bower install
+  923  sudo bower install --allow-root-options
+  924  sudo bower install --allow-root
+  925  bower update
+  926  grunt update
+  927  bower install
+  928  sudo npm install
+  929  sudo npm update
+  930  gem
+  931  sudo yum install ruby
+  932  sudo yum install gcc g++ make automake autoconf curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel sqlite-devel
+  933  sudo yum install ruby-rdoc ruby-devel
+  934  yum install -y centos-release-SCL
+  935  sudo yum install -y centos-release-SCL
+  936  yum install -y python27
+  937  sudo yum install -y python27
+  938  sudo yum install -y python
+  939  sudo yum install -y centos-release-SCL
+  940  sudo yum install -y centos-release-scl
+  941  sudo yum install -y python27
+  942  sudo yum install rubygems
+  943  gem
+  944  ruby
+  945  yum install -y python-pip
+  946  sudo yum install -y python-pip
+  947  pip install -U pip
+  948  sudo pip install -U pip
+  949  pwd
+  950  cd 
+  951  ls
+  952  pwd
+  953  cd /var/automyse/portal/queryhub/
+  954  ls
+  955  sudo bash activator run
+  956  iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 9000 -j ACCEPT -m comment --comment "Play Test Server port"
+  957  sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 9000 -j ACCEPT -m comment --comment "Play Test Server port"
+  958  sudo service iptables save 
+  959  sudo bash activator run
+  960  sudo bash activator "run  80"
+  961  sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -m comment --comment "Play Test Server port"
+  962  sudo service iptables save 
+  963  sudo iptables -l 
+  964  sudo iptables -L 
+  965  sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT -m comment --comment "Play Test Server port"
+  966  sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT -m comment --comment "Play Test Server port"
+  967  sudo docker ps -a
+  968  rm $(docker ps -a -q)
+  969  sudo docker rm $(docker ps -a -q)
+  970  sudo docker rm $(sudo docker ps -a -q)
+  971  sudo iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+  972  sudo service iptables save 
+  973  sudo iptables -A INPUT -p tcp -m tcp --dport 9000 -j ACCEPT
+  974  sudo iptables -A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
+  975  sudo service iptables save 
+  976  sudo iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+  977  sudo service iptables save 
+  978  sudo iptables -L 
+  979  sudo iptables -A OUTPUT -p tcp -m tcp --dport 9000 -j ACCEPT
+  980  sudo iptables -A OUTPUT -p tcp -m tcp --dport 80 -j ACCEPT
+  981  sudo iptables -A OUTPUT -p tcp -m tcp --dport 8080 -j ACCEPT
+  982  sudo iptables -A OUTPUT -p tcp -m tcp --dport 443 -j ACCEPT
+  983  sudo service iptables save 
+  984  sudo iptables -L 
+  985  sudo bash activator "run  80"
+  986  sudo iptables -A INPUT -i lo -j ACCEPT
+  987  sudo iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+  988  sudo iptables -A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT
+  989  sudo iptables -A INPUT -p tcp -m tcp --dport 9000 -j ACCEPT
+  990  sudo iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
+  991  sudo service iptables save 
+  992  sudo iptables -L 
+  993  sudo iptables -A INPUT -p tcp -m tcp --dport 25 -j ACCEPT
+  994  sudo iptables -A INPUT -p tcp -m tcp --dport 465 -j ACCEPT
+  995  sudo iptables -A INPUT -p tcp -m tcp --dport 110 -j ACCEPT
+  996  sudo iptables -A INPUT -p tcp -m tcp --dport 995 -j ACCEPT
+  997  sudo iptables -A INPUT -p tcp -m tcp --dport 143 -j ACCEPT
+  998  sudo iptables -A INPUT -p tcp -m tcp --dport 943 -j ACCEPT
+  999  sudo service iptables save 
+ 1000  nmap -sT -O localhost
+ 1001  sudo yum install nmap
+ 1002  nmap -sT -O localhost
+ 1003  sudo nmap -sT -O localhost
+ 1004  wget http:\\217.174.253.94:9000
+ 1005  wget "http:\\217.174.253.94:9000"
+ 1006  wget http://217.174.253.94:9000/
+ 1007  wget http://217.174.253.94
+ 1008  ls
+ 1009  pwd
+ 1010  cd ORADSK
+ 1011  ls
+ 1012* sudo docker 
+ 1013  sudo docker rmi 9d0749296d16
+ 1014  sudo docker images
+ 1015  emacs Dockerfile
+ 1016  sudo docker build -t automyse:ora11ex ./
+ 1017  sudo docker run -h 217.174.253.94  -p 8089:8080 -p 1521:1521 -p 23:22  automyse:ora11ex
+ 1018  wget http://217.174.253.94
+ 1019  ipconfig
+ 1020  nmap -sT -O 
+ 1021  sudo nmap -sT -O 
+ 1022  sudo nmap -sT -O 217.174.253.94
+ 1023  ifconfig -a
+ 1024  ifconfig -aip link show
+ 1025  ip link show
+ 1026  sudo ip link show
+ 1027  ip a
+ 1028  sudo iptables -A INPUT -i eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1029  sudo iptables -A INPUT -i ep1s0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1030  sudo iptables -A INPUT -i ep1s0 -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1031  sudo iptables -A INPUT -i ep1s0 -p tcp --dport 8000 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1032  sudo iptables -A INPUT -i ep1s0 -p tcp --dport 9000 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1033  sudo iptables -A INPUT -i ep1s0 -p tcp --dport 9443 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1034  sudo iptables -A INPUT -i ep1s0 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1035  sudo iptables -A OUTPUT -o eth0 -p tcp --sport 80 -m state --state ESTABLISHED -j ACCEPT
+ 1036  sudo iptables -A OUTPUT -o enp1s0 -p tcp --sport 80 -m state --state ESTABLISHED -j ACCEPT
+ 1037  sudo iptables -A INPUT -i enp1s0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1038  sudo iptables -A INPUT -i enp1s0 -p tcp --dport 8080 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1039  sudo iptables -A INPUT -i enp1s0 -p tcp --dport 8000 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1040  sudo iptables -A INPUT -i enp1s0 -p tcp --dport 9000 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1041  sudo iptables -A INPUT -i enp1s0 -p tcp --dport 9443 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1042  sudo iptables -A INPUT -i enp1s0 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
+ 1043  sudo iptables -A OUTPUT -o enp1s0 -p tcp --sport 8080 -m state --state ESTABLISHED -j ACCEPT
+ 1044  sudo iptables -A OUTPUT -o enp1s0 -p tcp --sport 8000 -m state --state ESTABLISHED -j ACCEPT
+ 1045  sudo iptables -A OUTPUT -o enp1s0 -p tcp --sport 9000 -m state --state ESTABLISHED -j ACCEPT
+ 1046  sudo iptables -A OUTPUT -o enp1s0 -p tcp --sport 9443 -m state --state ESTABLISHED -j ACCEPT
+ 1047  sudo iptables -A OUTPUT -o enp1s0 -p tcp --sport 443 -m state --state ESTABLISHED -j ACCEPT
+ 1048  sudo service iptables save 
+ 1049  sudo iptables -L
+ 1050  sudo service iptables stop
+ 1051  sudo service iptables start
+ 1052  sudo service iptables restart
+ 1053  wget http://217.174.253.94:9000/
+ 1054  wget http://217.174.253.94
+ 1055  sudo service iptables off
+ 1056  sudo service iptables force-reload
+ 1057  sudo service iptables status
+ 1058  nmap -sT -O 
+ 1059  nmap -sT -O 0.0.0.0
+ 1060  sudo nmap -sT -O 0.0.0.0
+ 1061  sudo nmap -sT -127.0.0.1
+ 1062  sudo nmap -sT -O 127.0.0.1
+ 1063  ip -a
+ 1064  ip -s
+ 1065  ip adr
+ 1066  ip addr
+ 1067  sudo service iptables -L
+ 1068  sudo iptables -L
+ 1069  sudo iptables -L -h
+ 1070  sudo iptables -h
+ 1071* sudo iptables -
+ 1072  sudo iptables -L
+ 1073  sudo iptables -L -n
+ 1074  sudo nmap -sT -O 0.0.0.0
+ 1075  sudo nmap -sT -O 217.174.253.94
+ 1076  wget http://217.174.253.94:9000/
+ 1077  sudo nmap -sT -O 217.174.253.94
+ 1078  service iptables status
+ 1079  service iptables stop
+ 1080  sudo service iptables stop
+ 1081  history -w ~/history.txt
+ 1082  ls
+ 1083  history -w history.txt
+ 1084  ls
+ 1085  history -w 
+ 1086  history 
+ 1087  history > history.txt
