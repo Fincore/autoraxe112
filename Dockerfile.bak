@@ -1,0 +1,40 @@
+
+#
+# Originally written for Fincore by
+#   Marcelle von Wendland <mvw@fincore.com>
+
+FROM centos:centos6
+MAINTAINER Fincore Ltd - Marcelle von Wendland <mvw@fincore.com>
+
+# Pre-requirements
+RUN mkdir -p /run/lock/subsys
+
+RUN yum install -y libaio 
+RUN yum clean all
+RUN yum update -y
+
+# Install Oracle XE
+ADD disk1/oracle-xe-11.2.0-1.0.x86_64.rpm /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
+
+RUN yum localinstall -y /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
+RUN rm -rf /tmp/img/oracle-xe-11.2.0-1.0.x86_64.rpm
+
+ADD init.ora initXETemp.ora disk1/response/xe.rsp /u01/app/oracle/product/11.2.0/xe/config/scripts/
+
+RUN chown oracle:dba /u01/app/oracle/product/11.2.0/xe/config/scripts/*.ora \
+                     /u01/app/oracle/product/11.2.0/xe/config/scripts/xe.rsp
+RUN chmod 755        /u01/app/oracle/product/11.2.0/xe/config/scripts/*.ora \
+                     /u01/app/oracle/product/11.2.0/xe/config/scripts/xe.rsp
+ENV ORACLE_HOME /u01/app/oracle/product/11.2.0/xe
+ENV ORACLE_SID  XE
+ENV PATH        $ORACLE_HOME/bin:$PATH
+
+RUN /etc/init.d/oracle-xe configure responseFile=/u01/app/oracle/product/11.2.0/xe/config/scripts/xe.rsp
+
+# Run script
+ADD start.sh /
+RUN chmod +x  start.sh
+CMD /start.sh
+
+EXPOSE 1521
+EXPOSE 8080

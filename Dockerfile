@@ -1,3 +1,4 @@
+
 #
 # Originally written for Fincore by
 #   Marcelle von Wendland <mvw@fincore.com>
@@ -5,50 +6,107 @@
 FROM centos:centos6
 MAINTAINER Fincore Ltd - Marcelle von Wendland <mvw@fincore.com>
 
-# Install the packages libaio and bc
-RUN yum install -y libaio bc
+# Pre-requirements
+RUN mkdir -p /run/lock/subsys
 
-# Copy the RPM file, modified init.ora, initXETemp.ora and the installation response file
-# inside the image
+RUN yum install -y libaio 
+RUN yum clean all
+RUN yum update -y
 
-
+# Install Oracle XE
 ADD disk1/oracle-xe-11.2.0-1.0.x86_64.rpm /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
 
-ADD init.ora /tmp/init.ora
-ADD initXETemp.ora /tmp/initXETemp.ora
-ADD disk1/response/xe.rsp /tmp/xe.rsp
-
-# Install the Oracle XE RPM
 RUN yum localinstall -y /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
+RUN rm -rf /tmp/img/oracle-xe-11.2.0-1.0.x86_64.rpm
 
-# Delete the Oracle XE RPM
-RUN rm -f /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
+ADD test.sql init.ora initXETemp.ora disk1/response/xe.rsp /u01/app/oracle/product/11.2.0/xe/config/scripts/
 
-# move the files init.ora and initXETemp.ora to the right directory
-RUN mv /tmp/init.ora /u01/app/oracle/product/11.2.0/xe/config/scripts
-RUN mv /tmp/initXETemp.ora /u01/app/oracle/product/11.2.0/xe/config/scripts
+RUN chown oracle:dba /u01/app/oracle/product/11.2.0/xe/config/scripts/*.ora \
+                     /u01/app/oracle/product/11.2.0/xe/config/scripts/xe.rsp
+RUN chmod 755        /u01/app/oracle/product/11.2.0/xe/config/scripts/*.ora \
+                     /u01/app/oracle/product/11.2.0/xe/config/scripts/xe.rsp
+ENV ORACLE_HOME /u01/app/oracle/product/11.2.0/xe
+ENV ORACLE_SID  XE
+ENV PATH        $ORACLE_HOME/bin:$PATH
 
-# Configure the database
-RUN /etc/init.d/oracle-xe configure responseFile=/tmp/xe.rsp
+RUN /etc/init.d/oracle-xe configure responseFile=/u01/app/oracle/product/11.2.0/xe/config/scripts/xe.rsp
 
-# Create entries for the database in the profile
-RUN echo 'export ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe' >> /etc/profile.d/oracle_profile.sh
-RUN echo 'export PATH=$ORACLE_HOME/bin:$PATH' >> /etc/profile.d/oracle_profile.sh
-RUN echo 'export ORACLE_SID=XE' >> /etc/profile.d/oracle_profile.sh
+# Run script
+ADD start.sh /
+RUN chmod +x  start.sh
 
-# Create ssh keys and change some ssh settings
-RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key && ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key && sed -i "s/#UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config
 
-# Change the root and oracle password to oracle
-RUN echo root:oracle | chpasswd
-RUN echo oracle:oracle | chpasswd
+ADD disk1/jdk-8u73-linux-x64.rpm  /tmp/jdk-8u73-linux-x64.rpm
+RUN yum localinstall -y  /tmp/jdk-8u73-linux-x64.rpm
 
-# Expose ports 22, 1521 and 8080
-EXPOSE 22
+ADD disk1/scala-2.11.8.rpm /tmp/scala-2.11.8.rpm
+RUN yum localinstall -y /tmp/scala-2.11.8.rpm
+
+RUN curl https://bintray.com/sbt/rpm/rpm | tee /etc/yum.repos.d/bintray-sbt-rpm.repo
+RUN yum install sbt -y
+
+RUN yum install epel-release -y
+RUN yum clean all
+RUN yum update -y
+
+RUN yum install nodejs -y
+
+RUN yum install npm -y
+
+RUN yum install ruby -y
+RUN yum install gcc g++ make automake autoconf curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel sqlite-devel -y -t
+RUN yum install rubygems -y
+
+RUN npm install -g grunt-cli
+RUN npm install grunt --save-dev
+
+RUN yum install yum-utils bzip2 bzip2-devel wget curl tar -y -t
+RUN yum groupinstall "Development Tools" -y -t
+
+RUN npm install bower -g
+RUN npm install gulp -g
+
+RUN yum install cmake -y
+
+RUN yum install zlib-devel -y
+RUN yum install bzip2-devel -y
+RUN yum install openssl-devel -y
+RUN yum install ncurses-devel -y
+RUN yum install sqlite-devel -y
+
+
+RUN yum install -y centos-release-SCL
+RUN yum install -y python27
+
+RUN yum install mysql -y
+
+RUN yum clean all
+RUN yum update -y
+
+RUN yum -y install python-pip
+
+RUN yum install git -y
+
+RUN yum install golang -y
+
+RUN pip install --upgrade setuptools
+RUN pip install --upgrade pip
+
+RUN pip install supervisor
+
+RUN git clone https://automyse:Aw3s0m32@github.com/Fincore/FDM3-dev.git /var/automyse
+
+RUN yum clean all
+RUN yum update -y
+
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+EXPOSE 3306
 EXPOSE 1521
 EXPOSE 8080
 
-# Change the hostname in the listener.ora file, start Oracle XE and the ssh daemon
-CMD sed -i -E "s/HOST = [^)]+/HOST = $HOSTNAME/g" /u01/app/oracle/product/11.2.0/xe/network/admin/listener.ora; \
-service oracle-xe start; \
-/usr/sbin/sshd -D
+#CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=127.0.0.1
+#CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=172.17.42.1
+#CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=217.174.253.94 
+#CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=217.174.253.94 < /u01/app/oracle/product/11.2.0/xe/config/scripts/test.sql
+#CMD /start.sh
+CMD ["/usr/bin/supervisord"]
