@@ -99,7 +99,7 @@ RUN git clone https://automyse:Aw3s0m32@github.com/Fincore/FDM3-dev.git /var/aut
 RUN yum clean all
 RUN yum update -y
 
-COPY supervisord.conf /etc/supervisord.conf
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 3306
 EXPOSE 1521
 EXPOSE 8080
