@@ -99,7 +99,7 @@ RUN git clone https://automyse:Aw3s0m32@github.com/Fincore/FDM3-dev.git /var/aut
 RUN yum clean all
 RUN yum update -y
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY supervisord.conf /etc/supervisord.conf
 EXPOSE 3306
 EXPOSE 1521
 EXPOSE 8080
@@ -108,5 +108,5 @@ EXPOSE 80
 #CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=172.17.42.1
 #CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=217.174.253.94 
 #CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=217.174.253.94 < /u01/app/oracle/product/11.2.0/xe/config/scripts/test.sql
-#CMD /start.sh
-CMD ["/usr/bin/supervisord"]
+CMD /start.sh
+#CMD ["/usr/bin/supervisord"]

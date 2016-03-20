@@ -109,4 +109,6 @@ EXPOSE 80
 #CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=217.174.253.94 
 #CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=217.174.253.94 < /u01/app/oracle/product/11.2.0/xe/config/scripts/test.sql
 #CMD /start.sh
-CMD ["/usr/bin/supervisord"]
+#CMD ["/usr/bin/supervisord"]
+CMD bash /var/automyse/portal/queryhub/activator "run Dhttp.address=0.0.0.0 -Dhttp.port=80"
+ 
