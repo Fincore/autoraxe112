@@ -103,12 +103,55 @@ COPY supervisord.conf /etc/supervisord.conf
 EXPOSE 3306
 EXPOSE 1521
 EXPOSE 8080
+EXPOSE 8081
 EXPOSE 80
+EXPOSE 4040
+EXPOSE 7076
+EXPOSE 7077
+
+ADD autospark.sh /
+RUN chmod +x  autospark.sh
+RUN git clone https://automyse:Aw3s0m32@github.com/Fincore/autospark.git /var/autospark
+
+#RUN java -version
+RUN wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+RUN yum install apache-maven -y
+RUN yum clean all
+RUN yum update -y
+RUN mvn -version
+RUN java -version
+
+RUN bash autospark.sh
+
+ADD startspark.sh /
+RUN chmod +x  startspark.sh
+
+RUN mkdir -p /var/oracle
+RUN chown oracle:dba /var/oracle
+USER oracle
+RUN git clone https://automyse:Aw3s0m32@github.com/Fincore/autorepo.git /var/oracle/autorepo
+WORKDIR /var/oracle/autorepo
+#ENV ORACLE_SID=XE
+RUN ./install_xe_docker.sh init
+
+#CMD bash startspark.sh
+
+#CMD /start.sh
+#CMD git pull https://automyse:Aw3s0m32@github.com/Fincore/autorepo.git
+#CMD ./install_xe_docker.sh apply-hotfix alter_21700001
+
+
 #CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=127.0.0.1
 #CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=172.17.42.1
 #CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=217.174.253.94 
 #CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=217.174.253.94 < /u01/app/oracle/product/11.2.0/xe/config/scripts/test.sql
 #CMD /start.sh
 #CMD ["/usr/bin/supervisord"]
-CMD bash /var/automyse/portal/queryhub/activator "run Dhttp.address=0.0.0.0 -Dhttp.port=80"
- 
+#CMD bash /var/automyse/portal/queryhub/activator "run Dhttp.address=0.0.0.0 -Dhttp.port=80"
+
+USER root
+WORKDIR /
+RUN chmod +x /var/automyse/portal/queryhub/activator
+ADD automyse.sh /
+RUN chmod +x /automyse.sh
+CMD /automyse.sh
