@@ -139,8 +139,6 @@ RUN ./install_xe_docker.sh init
 #CMD /start.sh
 #CMD git pull https://automyse:Aw3s0m32@github.com/Fincore/autorepo.git
 #CMD ./install_xe_docker.sh apply-hotfix alter_21700001
-
-
 #CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=127.0.0.1
 #CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=172.17.42.1
 #CMD mysql --user=AUTOMYSE --password='Aw3s0m32' --host=217.174.253.94 
@@ -149,9 +147,129 @@ RUN ./install_xe_docker.sh init
 #CMD ["/usr/bin/supervisord"]
 #CMD bash /var/automyse/portal/queryhub/activator "run Dhttp.address=0.0.0.0 -Dhttp.port=80"
 
+
 USER root
 WORKDIR /
-RUN chmod +x /var/automyse/portal/queryhub/activator
+ADD sudoers /
+RUN chown -R root:root sudoers
+RUN groupadd fincore
+RUN useradd -g fincore  fincore
+RUN yum update -y
+RUN yum install sudo -y
+RUN yum update -y
+RUN cp sudoers /etc/sudoers
+ADD automyse/  /tmp/automyse/
+RUN cp -r /tmp/automyse  /var/automyse
+ADD ivy2/  /tmp/ivy2/
+RUN cp -r /tmp/ivy2  /home/fincore/.ivy2
+RUN chown -R fincore:fincore /var/automyse
+RUN chown -R fincore:fincore /home/fincore
+#CMD ["/usr/bin/supervisord"]RUN chmod +x /var/automyse/portal/queryhub/activator
+
+
+
+USER fincore
+WORKDIR /var/automyse/portal/queryhub/ui/
+RUN npm update
+#RUN bower install  --allow-root
+#RUN bower update  --allow-root
+WORKDIR /var/automyse/portal/queryhub/
+
+#ADD automyse/  /tmp/automyse2/
+#RUN cp -r /tmp/automyse  /var/automyse
+#ADD .ivy2/  /tmp/ivy22/
+#RUN cp -r /tmp/ivy22  /home/fincore/.ivy2
+#RUN chown -R fincore:fincore /var/automyse
+#RUN chown -R fincore:fincore /home/fincore
+
+#RUN pwd
+#RUN id
+
+#RUN ./activator run
+#RUN sudo -n ./activator reload plugins
+#RUN ./activator clean
+#RUN ./activator update 
+#RUN ./activator publishLocal
+
+USER root
+WORKDIR /
+#ADD automyse.sh /
+#RUN chmod +x /automyse.sh
+#CMD /automyse.sh
+
+#ADD startspark.sh /
+#RUN chmod +x /startspark.sh
+#CMD /startspark.sh
+
+ENV SPARK_LOCAL_HOSTNAME localhost
+ADD supd.conf  /
+COPY supd.conf /etc/supervisord.conf
+EXPOSE 8082
+EXPOSE 8083
+EXPOSE 8084
+
+ADD bash_profile /
+COPY bash_profile /home/fincore/.bash_profile
+
 ADD automyse.sh /
+COPY automyse.sh /var/automyse/portal/queryhub/automyse.sh
 RUN chmod +x /automyse.sh
-CMD /automyse.sh
+
+WORKDIR /var/automyse/
+#RUN git pull origin master
+
+#WORKDIR /var/automyse/portal/queryhub/lib/spark/
+#RUN cat spark-assembly-1.5.2-hadoop2.4.0.zip.* > spark-assembly-1.5.2-hadoop2.4.0.zip
+#RUN unzip spark-assembly-1.5.2-hadoop2.4.0.zip -d ./
+#RUN cp *.jar ../
+#RUN chmod 755 /var/autospark/bin
+#WORKDIR /var/autospark/assembly/target/scala-2.11/
+#RUN mv spark-assembly-1.5.2-hadoop2.4.0.jar spark-assembly-1.5.2-hadoop2.4.0.ja_
+#RUN cp /var/automyse/portal/queryhub/lib/spark/spark-assembly-1.5.2-hadoop2.4.0.jar ./
+
+WORKDIR /
+ADD prepjar.sh /
+RUN chmod +x /prepjar.sh
+
+ENV HOME /home/fincore
+
+WORKDIR /var/
+RUN git clone https://github.com/vonwenm/play-yeoman.git
+WORKDIR /var/play-yeoman/play-yeoman
+RUN sbt clean publishLocal
+WORKDIR /var/play-yeoman/sbt-yeoman
+RUN sbt clean publishLocal
+
+WORKDIR /
+RUN bash prepjar.sh
+
+#WORKDIR /var/automyse/portal/queryhub/
+#RUN chmod +x  activator
+#ENV HOME /home/fincore
+#RUN ./activator reload plugins
+#RUN ./activator update
+#RUN ./activator clean
+#RUN ./activator publishLocal 
+
+ENV SPARK_HOME /var/autospark/
+ENV SPARK_CLASSPATH /var/autospark/assembly/target/scala-2.11/
+ENV JAVA_OPTS "-Duser.timezone=GMT"
+
+EXPOSE 9000
+
+#WORKDIR /var/automyse/portal/queryhub/ui/
+#RUN npm update
+#RUN bower install  --allow-root
+#RUN bower update  --allow-root
+
+WORKDIR /
+ADD supd3.conf  /
+COPY supd3.conf /etc/supervisord.conf
+
+#ADD   listener.ora  /
+#COPY  listener.ora  /u01/app/oracle/product/11.2.0/xe/network/admin/listener.ora
+#ADD   tnsnames.ora  /
+#COPY  tnsnames.ora  /u01/app/oracle/product/11.2.0/xe/network/admin/tnsnames.ora
+
+CMD ["/usr/bin/supervisord"]
+
