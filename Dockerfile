@@ -104,10 +104,15 @@ EXPOSE 3306
 EXPOSE 1521
 EXPOSE 8080
 EXPOSE 8081
+EXPOSE 8082
+EXPOSE 8083
+EXPOSE 8084
 EXPOSE 80
 EXPOSE 4040
 EXPOSE 7076
 EXPOSE 7077
+EXPOSE 9000
+
 
 ADD autospark.sh /
 RUN chmod +x  autospark.sh
@@ -204,9 +209,6 @@ WORKDIR /
 ENV SPARK_LOCAL_HOSTNAME localhost
 ADD supd.conf  /
 COPY supd.conf /etc/supervisord.conf
-EXPOSE 8082
-EXPOSE 8083
-EXPOSE 8084
 
 ADD bash_profile /
 COPY bash_profile /home/fincore/.bash_profile
@@ -254,8 +256,6 @@ RUN bash prepjar.sh
 ENV SPARK_HOME /var/autospark/
 ENV SPARK_CLASSPATH /var/autospark/assembly/target/scala-2.11/
 ENV JAVA_OPTS "-Duser.timezone=GMT"
-
-EXPOSE 9000
 
 #WORKDIR /var/automyse/portal/queryhub/ui/
 #RUN npm update
