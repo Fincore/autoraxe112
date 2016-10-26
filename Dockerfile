@@ -162,7 +162,7 @@ WORKDIR /var/autospark
 RUN chmod +x  /var/autospark/autospark.sh
 RUN bash /var/autospark/autospark.sh
 
-### Oracle repo
+### Oracle repo db
 RUN mkdir -p /var/oracle
 RUN chown oracle:dba /var/oracle
 
