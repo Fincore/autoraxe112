@@ -215,10 +215,6 @@ WORKDIR /
 ADD bash_profile /
 COPY bash_profile /home/fincore/.bash_profile
 
-ADD automyse.sh /
-COPY automyse.sh /var/automyse/portal/queryhub/automyse.sh
-RUN chmod +x /automyse.sh
-
 WORKDIR /var/automyse/
 
 ENV HOME /home/fincore
@@ -271,9 +267,16 @@ RUN chmod +x  /var/autospark/bin/*
 RUN cp /var/autospark/assembly/target/scala-2.11/jars/* /var/automyse/portal/queryhub/lib
 RUN cp -f /var/automyse/portal/queryhub/conf/application.conf.docker /var/automyse/portal/queryhub/conf/application.conf
 
+ADD automyse.sh /
+COPY automyse.sh /var/automyse/portal/queryhub/automyse.sh
 RUN chmod +x  /var/automyse/portal/queryhub/*
+
 WORKDIR /var/automyse/portal/queryhub/
 RUN ./activator compile
+
+WORKDIR /var/oracle/autorepo/
+RUN git pull
+RUN /var/oracle/autorepo/install_xe_docker.sh apply-hotfix alter_30000001
 
 COPY supervisord.conf /etc/supervisord.conf
 
