@@ -272,6 +272,8 @@ RUN cp /var/autospark/assembly/target/scala-2.11/jars/* /var/automyse/portal/que
 RUN cp -f /var/automyse/portal/queryhub/conf/application.conf.docker /var/automyse/portal/queryhub/conf/application.conf
 
 RUN chmod +x  /var/automyse/portal/queryhub/*
+WORKDIR /var/automyse/portal/queryhub/
+RUN ./activator compile
 
 COPY supervisord.conf /etc/supervisord.conf
 
