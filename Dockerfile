@@ -274,10 +274,6 @@ RUN chmod +x  /var/automyse/portal/queryhub/*
 WORKDIR /var/automyse/portal/queryhub/
 RUN ./activator compile
 
-WORKDIR /var/oracle/autorepo/
-RUN git pull
-RUN /var/oracle/autorepo/install_xe_docker.sh apply-hotfix alter_30000001
-
 COPY supervisord.conf /etc/supervisord.conf
 
 CMD ["/usr/bin/supervisord"]
