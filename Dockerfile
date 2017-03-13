@@ -5,40 +5,35 @@
 FROM centos:centos7
 MAINTAINER Fincore Ltd - Marcelle von Wendland <mvw@fincore.com>
 
+### Copy external contents
+COPY disk1/jdk-8u101-linux-x64.rpm  /tmp/jdk-8u101-linux-x64.rpm
+COPY disk1/scala-2.11.8.rpm /tmp/scala-2.11.8.rpm
+COPY disk1/oracle-xe-11.2.0-1.0.x86_64.rpm /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
+
 # Pre-requirements
 RUN mkdir -p /run/lock/subsys
 
 ### Install Kernel Asynchronous I/O (AIO)
 RUN yum install -y libaio 
-RUN yum clean all
-RUN yum update -y
 
 ### Install epel
 RUN yum install epel-release -y
 
-### Cleanup/update
-RUN yum clean all
-RUN yum update -y
-
 ### Install JDK
-ADD disk1/jdk-8u101-linux-x64.rpm  /tmp/jdk-8u101-linux-x64.rpm
 RUN yum localinstall -y  /tmp/jdk-8u101-linux-x64.rpm
 
-### Cleanup/update
-RUN yum clean all
-RUN yum update -y
-
 ### Install Scala
-ADD disk1/scala-2.11.8.rpm /tmp/scala-2.11.8.rpm
 RUN yum localinstall -y /tmp/scala-2.11.8.rpm
 
 ### Install sbt
 RUN curl https://bintray.com/sbt/rpm/rpm | tee /etc/yum.repos.d/bintray-sbt-rpm.repo
 RUN yum install sbt -y
 
-### Install Oracle XE
-ADD disk1/oracle-xe-11.2.0-1.0.x86_64.rpm /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
+### Cleanup/update
+RUN yum clean all
+RUN yum update -y
 
+### Install Oracle XE
 RUN yum localinstall -y /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
 RUN rm -rf /tmp/img/oracle-xe-11.2.0-1.0.x86_64.rpm
 
@@ -110,10 +105,6 @@ RUN yum install -y python27
 ### Install mysql - commented out
 #RUN yum install mysql -y
 
-### Cleanup/update
-RUN yum clean all
-RUN yum update -y
-
 ### Install 
 RUN yum -y install python-pip
 
@@ -129,17 +120,9 @@ RUN pip install --upgrade pip
 
 #RUN pip install supervisor
 
-### Cleanup/update
-RUN yum clean all
-RUN yum update -y
-
 ### Install maven
 RUN wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
 RUN yum install apache-maven -y
-
-### Cleanup/update
-RUN yum clean all
-RUN yum update -y
 
 ### Ports
 EXPOSE 3306
@@ -282,4 +265,3 @@ RUN ./activator compile
 COPY supervisord.conf /etc/supervisord.conf
 
 CMD ["/usr/bin/supervisord"]
-
