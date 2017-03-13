@@ -2,15 +2,39 @@
 # Originally written for Fincore by
 #   Marcelle von Wendland <mvw@fincore.com>
 
-FROM centos:centos6
+FROM centos:centos7
 MAINTAINER Fincore Ltd - Marcelle von Wendland <mvw@fincore.com>
 
 # Pre-requirements
 RUN mkdir -p /run/lock/subsys
 
+### Install Kernel Asynchronous I/O (AIO)
 RUN yum install -y libaio 
 RUN yum clean all
 RUN yum update -y
+
+### Install epel
+RUN yum install epel-release -y
+
+### Cleanup/update
+RUN yum clean all
+RUN yum update -y
+
+### Install JDK
+ADD disk1/jdk-8u101-linux-x64.rpm  /tmp/jdk-8u101-linux-x64.rpm
+RUN yum localinstall -y  /tmp/jdk-8u101-linux-x64.rpm
+
+### Cleanup/update
+RUN yum clean all
+RUN yum update -y
+
+### Install Scala
+ADD disk1/scala-2.11.8.rpm /tmp/scala-2.11.8.rpm
+RUN yum localinstall -y /tmp/scala-2.11.8.rpm
+
+### Install sbt
+RUN curl https://bintray.com/sbt/rpm/rpm | tee /etc/yum.repos.d/bintray-sbt-rpm.repo
+RUN yum install sbt -y
 
 ### Install Oracle XE
 ADD disk1/oracle-xe-11.2.0-1.0.x86_64.rpm /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
@@ -33,25 +57,6 @@ RUN /etc/init.d/oracle-xe configure responseFile=/u01/app/oracle/product/11.2.0/
 # Run script
 ADD start.sh /
 RUN chmod +x  start.sh
-
-### Install JDK
-ADD disk1/jdk-8u101-linux-x64.rpm  /tmp/jdk-8u101-linux-x64.rpm
-RUN yum localinstall -y  /tmp/jdk-8u101-linux-x64.rpm
-
-### Install Scala
-ADD disk1/scala-2.11.8.rpm /tmp/scala-2.11.8.rpm
-RUN yum localinstall -y /tmp/scala-2.11.8.rpm
-
-### Install sbt
-RUN curl https://bintray.com/sbt/rpm/rpm | tee /etc/yum.repos.d/bintray-sbt-rpm.repo
-RUN yum install sbt -y
-
-### Install epel
-RUN yum install epel-release -y
-
-### Cleanup/update
-RUN yum clean all
-RUN yum update -y
 
 ### Install node-js
 RUN yum install nodejs -y
