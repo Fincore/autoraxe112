@@ -1,7 +1,0 @@
-cd /var/automyse/portal/queryhub/
-bash activator reload plugins
-bash activator update
-bash activator clean
-bash activator publishLocal
-bash activator "run Dhttp.address=0.0.0.0 -Dhttp.port=80"
-  

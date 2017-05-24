@@ -6,7 +6,7 @@ FROM centos:centos7
 MAINTAINER Fincore Ltd - Marcelle von Wendland <mvw@fincore.com>
 
 ### Copy external contents
-COPY disk1/jdk-8u101-linux-x64.rpm  /tmp/jdk-8u101-linux-x64.rpm
+COPY disk1/jdk-8u111-linux-x64.rpm  /tmp/jdk-8u111-linux-x64.rpm
 COPY disk1/scala-2.11.8.rpm /tmp/scala-2.11.8.rpm
 COPY disk1/oracle-xe-11.2.0-1.0.x86_64.rpm /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
 
@@ -20,7 +20,7 @@ RUN yum install -y libaio
 RUN yum install epel-release -y
 
 ### Install JDK
-RUN yum localinstall -y  /tmp/jdk-8u101-linux-x64.rpm
+RUN yum localinstall -y  /tmp/jdk-8u111-linux-x64.rpm
 
 ### Install Scala
 RUN yum localinstall -y /tmp/scala-2.11.8.rpm
@@ -96,17 +96,29 @@ RUN yum install ncurses-devel -y
 ### Install 
 RUN yum install sqlite-devel -y
 
-### Install 
-RUN yum install -y centos-release-SCL
+### Install - commented out doesn't work for centos 7, replaced
+#RUN yum install -y centos-release-SCL
+RUN yum groupinstall 'Development Tools' -y
 
-### Install 
-RUN yum install -y python27
+### Install - commented out doesn't work for centos 7, replaced
+#RUN yum install -y python27
+WORKDIR /tmp
+RUN wget https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz
+RUN tar -zxf Python-2.7.11.tgz
+WORKDIR /tmp/Python-2.7.11
+RUN ./configure --prefix=/opt/
+RUN make
+RUN make install
 
 ### Install mysql - commented out
 #RUN yum install mysql -y
 
 ### Install 
 RUN yum -y install python-pip
+
+### Install maven
+RUN wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+RUN yum install apache-maven -y
 
 ### Install 
 RUN yum install git -y
@@ -115,14 +127,9 @@ RUN yum install git -y
 RUN yum install golang -y
 
 ### Install 
-RUN pip install --upgrade setuptools
-RUN pip install --upgrade pip
-
+#RUN pip install --upgrade setuptools
+#RUN pip install --upgrade pip
 #RUN pip install supervisor
-
-### Install maven
-RUN wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
-RUN yum install apache-maven -y
 
 ### Ports
 EXPOSE 3306
@@ -139,6 +146,8 @@ EXPOSE 7076
 EXPOSE 7077
 EXPOSE 9000
 
+ENV JAVA_HOME /usr/java/jdk1.8.0_111/jre
+
 RUN mvn -version
 RUN java -version
 
@@ -147,6 +156,7 @@ RUN git clone https://automyse:Aw3s0m32@github.com/Fincore/autospark.git /var/au
 
 ADD autospark.sh /var/autospark
 WORKDIR /var/autospark
+RUN chmod +x  /var/autospark/build/mvn
 RUN chmod +x  /var/autospark/autospark.sh
 RUN bash /var/autospark/autospark.sh
 
@@ -161,7 +171,6 @@ ENV ORACLE_SID  XE
 ENV PATH        $ORACLE_HOME/bin:$PATH
 
 RUN git clone https://automyse:Aw3s0m32@github.com/Fincore/autorepo.git /var/oracle/autorepo
-
 WORKDIR /var/oracle/autorepo
 RUN /var/oracle/autorepo/install_xe_docker.sh init
 
@@ -181,21 +190,6 @@ RUN cp sudoers /etc/sudoers
 
 ### Query hub
 RUN git clone https://automyse:Aw3s0m32@github.com/Fincore/FDM3-dev.git /var/automyse
-
-USER fincore
-WORKDIR /var/automyse/portal/queryhub/ui/
-RUN npm update
-#RUN bower install  --allow-root
-#RUN bower update  --allow-root
-WORKDIR /var/automyse/portal/queryhub/
-
-#ADD .ivy2/  /tmp/ivy22/
-#RUN cp -r /tmp/ivy22  /home/fincore/.ivy2
-#RUN chown -R fincore:fincore /var/automyse
-#RUN chown -R fincore:fincore /home/fincore
-
-#RUN pwd
-#RUN id
 
 USER root
 WORKDIR /
@@ -231,12 +225,7 @@ ENV PATH        $ORACLE_HOME/bin:$PATH
 ENV SPARK_HOME /var/autospark/
 ENV SPARK_CLASSPATH /var/autospark/assembly/target/scala-2.11/jars/
 ENV SPARK_LOCAL_HOSTNAME localhost
-ENV JAVA_OPTS "-Duser.timezone=GMT -Djavax.xml.parsers.DocumentBuilderFactory=com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl -Djavax.xml.parsers.SAXParserFactory=com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl -Djavax.xml.transform.TransformerFactory=com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl"
-
-#WORKDIR /var/automyse/portal/queryhub/ui/
-#RUN npm update
-#RUN bower install  --allow-root
-#RUN bower update  --allow-root
+ENV JAVA_OPTS "-Duser.timezone=GMT -Djavax.xml.parsers.DocumentBuilderFactory=com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl -Djavax.xml.parsers.SAXParserFactory=com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl -Djavax.xml.transform.TransformerFactory=com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl -Djava.security.egd=file:/dev/../dev/urandom"
 
 WORKDIR /
 #ADD supd3.conf  /
