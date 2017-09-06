@@ -10,6 +10,8 @@ COPY disk1/jdk-8u111-linux-x64.rpm  /tmp/jdk-8u111-linux-x64.rpm
 COPY disk1/scala-2.11.8.rpm /tmp/scala-2.11.8.rpm
 COPY disk1/oracle-xe-11.2.0-1.0.x86_64.rpm /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
 
+RUN ls /tmp -al
+
 # Pre-requirements
 RUN mkdir -p /run/lock/subsys
 
@@ -54,10 +56,13 @@ ADD start.sh /
 RUN chmod +x  start.sh
 
 ### Install node-js
-RUN yum install nodejs -y
+#RUN yum install nodejs -y
 
 ### Install npm
-RUN yum install npm -y
+#RUN yum install npm -y
+
+###The following ins needed because http-related packag is no longer part of the distrubution and normal installation fails
+RUN yum install https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm nodejs -y
 
 ### Install ruby
 RUN yum install ruby -y
@@ -172,7 +177,7 @@ ENV PATH        $ORACLE_HOME/bin:$PATH
 
 RUN git clone https://automyse:Aw3s0m32@github.com/Fincore/autorepo.git /var/oracle/autorepo
 WORKDIR /var/oracle/autorepo
-RUN /var/oracle/autorepo/install_xe_docker.sh init
+RUN /var/oracle/autorepo/install_xe_docker.sh init; exit 0
 
 USER root
 WORKDIR /
@@ -190,6 +195,21 @@ RUN cp sudoers /etc/sudoers
 
 ### Query hub
 RUN git clone https://automyse:Aw3s0m32@github.com/Fincore/FDM3-dev.git /var/automyse
+
+#USER fincore
+WORKDIR /var/automyse/portal/queryhub/qh/
+RUN npm update; exit 0
+RUN bower install --allow-root; exit 0
+RUN bower update --allow-root; exit 0
+WORKDIR /var/automyse/portal/queryhub/
+
+#ADD .ivy2/  /tmp/ivy22/
+#RUN cp -r /tmp/ivy22  /home/fincore/.ivy2
+#RUN chown -R fincore:fincore /var/automyse
+#RUN chown -R fincore:fincore /home/fincore
+
+#RUN pwd
+#RUN id
 
 USER root
 WORKDIR /
@@ -225,7 +245,12 @@ ENV PATH        $ORACLE_HOME/bin:$PATH
 ENV SPARK_HOME /var/autospark/
 ENV SPARK_CLASSPATH /var/autospark/assembly/target/scala-2.11/jars/
 ENV SPARK_LOCAL_HOSTNAME localhost
-ENV JAVA_OPTS "-Duser.timezone=GMT -Djavax.xml.parsers.DocumentBuilderFactory=com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl -Djavax.xml.parsers.SAXParserFactory=com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl -Djavax.xml.transform.TransformerFactory=com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl -Djava.security.egd=file:/dev/../dev/urandom"
+ENV JAVA_OPTS "-Duser.timezone=GMT -Djavax.xml.parsers.DocumentBuilderFactory=com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderFactoryImpl -Djavax.xml.parsers.SAXParserFactory=com.sun.org.apache.xerces.internal.jaxp.SAXParserFactoryImpl -Djavax.xml.transform.TransformerFactory=com.sun.org.apache.xalan.internal.xsltc.trax.TransformerFactoryImpl"
+
+#WORKDIR /var/automyse/portal/queryhub/ui/
+#RUN npm update
+#RUN bower install  --allow-root
+#RUN bower update  --allow-root
 
 WORKDIR /
 #ADD supd3.conf  /
@@ -250,6 +275,11 @@ RUN chmod +x  /var/automyse/portal/queryhub/*
 
 WORKDIR /var/automyse/portal/queryhub/
 RUN ./activator compile
+
+WORKDIR /home/fincore
+RUN wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+RUN rpm --import http://pkg.jenkins-ci.org/redhat-stable/jenkins-ci.org.key
+RUN yum install jenkins -y
 
 COPY supervisord.conf /etc/supervisord.conf
 
