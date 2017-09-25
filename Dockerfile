@@ -6,9 +6,31 @@ FROM centos:centos7
 MAINTAINER Fincore Ltd - Marcelle von Wendland <mvw@fincore.com>
 
 ### Copy external contents
-COPY disk1/jdk-8u111-linux-x64.rpm  /tmp/jdk-8u111-linux-x64.rpm
-COPY disk1/scala-2.11.8.rpm /tmp/scala-2.11.8.rpm
-COPY disk1/oracle-xe-11.2.0-1.0.x86_64.rpm /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
+#COPY disk1/jdk-8u111-linux-x64.rpm  /tmp/jdk-8u111-linux-x64.rpm
+#COPY disk1/scala-2.11.8.rpm /tmp/scala-2.11.8.rpm
+#COPY disk1/oracle-xe-11.2.0-1.0.x86_64.rpm /tmp/oracle-xe-11.2.0-1.0.x86_64.rpm
+
+COPY disk1/jdk-8u111-linux-x64.tar.001   /tmp/jdk-8u111-linux-x64.tar.001
+COPY disk1/jdk-8u111-linux-x64.tar.002   /tmp/jdk-8u111-linux-x64.tar.002
+RUN tar -xMf /tmp/jdk-8u111-linux-x64.tar   /tmp/
+RUN rm -rf /tmp/jdk-8u111-linux-x64.tar.001
+RUN rm -rf /tmp/jdk-8u111-linux-x64.tar.002
+
+COPY disk1/oracle-xe-11.2.0-1.0.x86_64.tar.001   /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.001
+COPY disk1/oracle-xe-11.2.0-1.0.x86_64.tar.002   /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.002
+COPY disk1/oracle-xe-11.2.0-1.0.x86_64.tar.003   /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.003
+COPY disk1/oracle-xe-11.2.0-1.0.x86_64.tar.004   /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.004
+RUN tar -xMf /tmp/oracle-xe-11.2.0-1.0.x86_64.tar   /tmp/
+RUN rm -rf /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.001
+RUN rm -rf /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.002
+RUN rm -rf /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.003
+RUN rm -rf /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.004
+
+COPY disk1/scala-2.11.8.tar.001   /tmp/scala-2.11.8.tar.001
+COPY disk1/scala-2.11.8.tar.002   /tmp/scala-2.11.8.tar.002
+RUN tar -xMf /tmp/scala-2.11.8.tar   /tmp/
+RUN rm -rf /tmp/scala-2.11.8.tar.001
+RUN rm -rf /tmp/scala-2.11.8.tar.002
 
 RUN ls /tmp -al
 
