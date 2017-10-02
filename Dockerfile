@@ -12,7 +12,8 @@ MAINTAINER Fincore Ltd - Marcelle von Wendland <mvw@fincore.com>
 
 COPY disk1/jdk-8u111-linux-x64.tar.001   /tmp/jdk-8u111-linux-x64.tar.001
 COPY disk1/jdk-8u111-linux-x64.tar.002   /tmp/jdk-8u111-linux-x64.tar.002
-RUN tar -xvfM /tmp/jdk-8u111-linux-x64.tar.001 /tmp/jdk-8u111-linux-x64.tar.002   /tmp/
+WORKDIR /tmp
+RUN cat jdk-8u111-linux-x64.tar.001 jdk-8u111-linux-x64.tar.002 | tar -xv
 RUN rm -rf /tmp/jdk-8u111-linux-x64.tar.001
 RUN rm -rf /tmp/jdk-8u111-linux-x64.tar.002
 
@@ -20,7 +21,8 @@ COPY disk1/oracle-xe-11.2.0-1.0.x86_64.tar.001   /tmp/oracle-xe-11.2.0-1.0.x86_6
 COPY disk1/oracle-xe-11.2.0-1.0.x86_64.tar.002   /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.002
 COPY disk1/oracle-xe-11.2.0-1.0.x86_64.tar.003   /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.003
 COPY disk1/oracle-xe-11.2.0-1.0.x86_64.tar.004   /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.004
-RUN tar -xvfM /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.001 /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.002 /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.003 /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.004  /tmp/
+WORKDIR /tmp
+RUN cat oracle-xe-11.2.0-1.0.x86_64.tar.001 oracle-xe-11.2.0-1.0.x86_64.tar.002 oracle-xe-11.2.0-1.0.x86_64.tar.003 oracle-xe-11.2.0-1.0.x86_64.tar.004 | tar -xv
 RUN rm -rf /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.001
 RUN rm -rf /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.002
 RUN rm -rf /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.003
@@ -28,7 +30,8 @@ RUN rm -rf /tmp/oracle-xe-11.2.0-1.0.x86_64.tar.004
 
 COPY disk1/scala-2.11.8.tar.001   /tmp/scala-2.11.8.tar.001
 COPY disk1/scala-2.11.8.tar.002   /tmp/scala-2.11.8.tar.002
-RUN tar -xvfM /tmp/scala-2.11.8.tar.001 /tmp/scala-2.11.8.tar.002   /tmp/
+WORKDIR /tmp
+RUN cat scala-2.11.8.tar.001 scala-2.11.8.tar.002 | tar -xv
 RUN rm -rf /tmp/scala-2.11.8.tar.001
 RUN rm -rf /tmp/scala-2.11.8.tar.002
 
